@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Vacation Planner</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>✈ AI Vacation Planner</h1>
+
+    <p class="subtitle">
+        Discover your perfect destination using AI recommendations
+    </p>
+
+    <form method="POST">
+
+        <label>🌍 Travel Type</label>
+
+        <select name="type">
+            <option>Romantic</option>
+            <option>Adventure</option>
+            <option>Nature</option>
+            <option>Culture</option>
+            <option>City</option>
+            <option>Relaxation</option>
+            <option>Luxury</option>
+            <option>Budget</option>
+        </select>
+
+        <label>💰 Budget</label>
+
+        <select name="budget">
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+        </select>
+
+        <label>🌤 Preferred Season</label>
+
+        <select name="season">
+            <option>Summer</option>
+            <option>Winter</option>
+            <option>Spring</option>
+            <option>Autumn</option>
+        </select>
+
+        <button type="submit">
+            🔍 Find My Dream Destination
+        </button>
+
+    </form>
+
+    {% if result %}
+
+    <div class="result">
+
+        <h2>🎯 Your AI Recommendation</h2>
+
+        <p><strong>📍 Destination:</strong>
+        {{ result.Destination }}</p>
+
+        <p><strong>🎡 Activities:</strong>
+        {{ result.Activities }}</p>
+
+        <p><strong>🏨 Hotel:</strong>
+        {{ result.Hotel }}</p>
+
+        <p><strong>✈ Travel Mode:</strong>
+        {{ result.Travel_Mode }}</p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
